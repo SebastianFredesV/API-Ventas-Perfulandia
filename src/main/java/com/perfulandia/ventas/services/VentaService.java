@@ -57,6 +57,16 @@ public class VentaService {
         return false;
     }
 
+    private VentaDTO toDTO(Venta venta) {
+        VentaDTO dto = new VentaDTO();
+        dto.setIdVenta(venta.getIdVenta());
+        dto.setIdCliente(venta.getIdCliente());
+        dto.setIdVendedor(venta.getIdVendedor());
+        dto.setFechaVenta(venta.getFechaVenta());
+        dto.setTotal(venta.getTotal());
+        return dto;
+    }
+
     private Venta toEntity(VentaDTO dto) {
         Venta venta = new Venta();
         venta.setIdVenta(dto.getIdVenta());
@@ -65,15 +75,5 @@ public class VentaService {
         venta.setFechaVenta(dto.getFechaVenta());
         venta.setTotal(dto.getTotal());
         return venta;
-    }
-
-    private Venta toDTO(Venta venta) {
-        VentaDTO dto = new VentaDTO();
-        dto.setIdVenta(venta.getIdVenta());
-        dto.setIdCliente(venta.getIdCliente());
-        dto.setIdVendedor(venta.getIdVendedor());
-        dto.setFechaVenta(venta.getFechaVenta());
-        dto.setTotal(venta.getTotal());
-        return dto;
     }
 }
