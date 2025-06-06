@@ -29,6 +29,11 @@ public class CuponService {
                 .collect(Collectors.toList());
     }
 
+    private Boolean esValido(Cupon cupon) {
+        return cupon.getActivo() &&
+            cupon.getFechaExpiracion().isAfter(LocalDate.now());
+    }
+
     public Optional<CuponDTO> obtenerPorCodigo(String codigo) {
         return repository.findByCodigo(codigo)
                 .filter(this::esValido)
@@ -41,11 +46,6 @@ public class CuponService {
             return true;
         }
         return false;
-    }
-
-    private Boolean eliminar esValido(Cupon cupon) {
-        return cupon.getActivo() &&
-            cupon.getFechaExpiracion().isAfter(LocalDate.now());
     }
 
     //Entity a DTO
