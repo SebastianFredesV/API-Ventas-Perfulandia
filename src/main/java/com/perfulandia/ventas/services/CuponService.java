@@ -2,7 +2,7 @@ package com.perfulandia.ventas.services;
 
 import com.perfulandia.ventas.dto.CuponDTO;
 import com.perfulandia.ventas.models.Cupon;
-import com.perfulandia.ventas.repositories.CuponRepository;
+import com.perfulandia.ventas.repository.CuponRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

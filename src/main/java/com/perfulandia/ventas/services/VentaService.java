@@ -1,6 +1,6 @@
 package com.perfulandia.ventas.services;
 
-import com.perfulandia.ventas.repositories.VentaRepository;
+import com.perfulandia.ventas.repository.VentaRepository;
 import com.perfulandia.ventas.models.Venta;
 import com.perfulandia.ventas.dto.VentaDTO;
 import org.springframework.beans.factory.annotation.Autowired;

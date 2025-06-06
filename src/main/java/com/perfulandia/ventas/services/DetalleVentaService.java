@@ -2,7 +2,7 @@ package com.perfulandia.ventas.services;
 
 import com.perfulandia.ventas.dto.DetalleVentaDTO;
 import com.perfulandia.ventas.models.DetalleVenta;
-import com.perfulandia.ventas.repositories.DetalleVentaRepository;
+import com.perfulandia.ventas.repository.DetalleVentaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +20,12 @@ public class DetalleVentaService {
         return repository.findAll().stream()
                 .map(this::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    public DetalleVentaDTO guardar(DetalleVentaDTO dto) {
+        DetalleVenta detalle = toEntity(dto);
+        DetalleVenta saved = repository.save(detalle);
+        return toDTO(saved);
     }
 
     public Optional<DetalleVentaDTO> obtenerPorId(Integer id) {
