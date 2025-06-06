@@ -15,12 +15,10 @@ public class Venta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    private LocalDate fechaVenta;
     private Integer idVenta;
+
     private Integer idCliente;
     private Integer idVendedor;
-
+    private LocalDate fechaVenta;
     private BigDecimal total;
-
 }

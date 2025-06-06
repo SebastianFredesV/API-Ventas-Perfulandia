@@ -18,7 +18,7 @@ public class CuponController {
     private CuponService service;
 
     @PostMapping("/validar")
-    public ResponseEntity<CuponDTO> validar(@RequestParam Integer codigo) {
+    public ResponseEntity<CuponDTO> validar(@RequestParam String codigo) {
         return service.obtenerPorCodigo(codigo)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());

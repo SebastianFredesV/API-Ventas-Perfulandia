@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 @RestController
-@RequestMapping("/api/detalle-venta")
+@RequestMapping("/api/detalle-ventas")
 
 public class DetalleVentaController {
 

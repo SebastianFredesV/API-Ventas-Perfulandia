@@ -5,13 +5,10 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Data
-
 public class CuponDTO {
-    private Integer id;
+    private Integer idCupon;
     private String codigo;
     private BigDecimal descuento;
-    private boolean activo;
+    private Boolean activo;
     private LocalDate fechaExpiracion;
-
-
 }
