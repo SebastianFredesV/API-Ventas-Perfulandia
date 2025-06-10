@@ -2,7 +2,7 @@ package com.perfulandia.ventas.services;
 
 import com.perfulandia.ventas.dto.CuponDTO;
 import com.perfulandia.ventas.models.Cupon;
-import com.perfulandia.ventas.repositories.CuponRepository;
+import com.perfulandia.ventas.repository.CuponRepository;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -32,10 +32,10 @@ public class CuponServiceTest {
         dto.setFechaExpiracion(LocalDate.of(2025, 12, 31));
 
         Cupon cupon = new Cupon();
-        cupon.setId(1);
+        //cupon.setId(1);
         cupon.setCodigo(dto.getCodigo());
         cupon.setDescuento(dto.getDescuento());
-        cupon.setActivo(dto.isActivo());
+        cupon.setActivo(dto.getActivo());
         cupon.setFechaExpiracion(dto.getFechaExpiracion());
 
         when(cuponRepository.save(any(Cupon.class))).thenReturn(cupon);
