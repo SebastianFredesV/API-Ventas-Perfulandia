@@ -24,7 +24,6 @@ public class CuponServiceTest {
 
     @Test
     public void testGuardarCupon() {
-        // Arrange
         CuponDTO dto = new CuponDTO();
         dto.setCodigo("PRUEBA10");
         dto.setDescuento(new BigDecimal("10.00"));
@@ -40,10 +39,8 @@ public class CuponServiceTest {
 
         when(cuponRepository.save(any(Cupon.class))).thenReturn(cupon);
 
-        // Act
         CuponDTO result = cuponService.guardar(dto);
 
-        // Assert
         assertNotNull(result);
         assertEquals("PRUEBA10", result.getCodigo());
         assertEquals(new BigDecimal("10.00"), result.getDescuento());

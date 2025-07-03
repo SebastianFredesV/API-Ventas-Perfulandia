@@ -2,9 +2,12 @@ package com.perfulandia.ventas.services;
 
 import com.perfulandia.ventas.repository.VentaRepository;
 import com.perfulandia.ventas.models.Venta;
+import com.perfulandia.ventas.controller.VentaController;
 import com.perfulandia.ventas.dto.VentaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 import java.util.List;
 import java.util.Optional;
@@ -64,6 +67,11 @@ public class VentaService {
         dto.setIdVendedor(venta.getIdVendedor());
         dto.setFechaVenta(venta.getFechaVenta());
         dto.setTotal(venta.getTotal());
+
+        // HATEOAS
+        dto.add(linkTo(methodOn(VentaController.class).obtenerPorId(venta.getIdVenta())).withSelfRel());
+        dto.add(linkTo(methodOn(VentaController.class).listar()).withRel("Ventas"));
+
         return dto;
     }
 
